@@ -1,32 +1,38 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class Question5
 {
   public static void main(String[] args)
   {
-    /**
-     * Prompt the user for number. This input indicates the number of integers the user will be entering next. 
-     * Print out the mode (highest occurrence) from the set of integers. 
-     *    e.g.
-     *     > 5
-     *     > 2
-     *     > 4
-     *     > 1
-     *     > 3
-     *     > 4
-     *     4
-     * 
-     *    e.g.
-     *     > 4
-     *     > 2
-     *     > 2
-     *     > 3
-     *     > 3
-     *     2
-     * Hint: Use a loop to get input. Use another 2 loops to find the mode
-     */
-     
     Scanner in = new Scanner(System.in);
+    ArrayList<Integer> data = new ArrayList<Integer>();
+    int num = in.nextInt();
+    int final_ans = 0;
+    int highest_occur = 0;
+    
+    for(int i = 0; i<num; i++)
+      {
+        //System.out.println("What is the number: ");
+        int num1 = in.nextInt();
+        data.add(num1);
+      }
+    for(int i: data)
+      {
+        int occurance = 0;
+        for(int j : data)
+          {
+            if(i == j)
+            {
+              occurance++;
+              if(occurance > highest_occur)
+              {
+                highest_occur = occurance;
+                final_ans = i;
+              }
+            }
+          }
+      }
+    System.out.println(final_ans);
     
   }
 }
